@@ -8,8 +8,8 @@ from pydantic import UUID4, BaseModel, Field, model_serializer
 
 class CreateBaseModel(BaseModel):
     id: UUID4 = Field(default_factory=uuid.uuid4)
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=datetime.now)
+    updated_at: datetime = Field(default_factory=datetime.now)
 
     @model_serializer
     def set_model(self) -> dict[str, Any]:
